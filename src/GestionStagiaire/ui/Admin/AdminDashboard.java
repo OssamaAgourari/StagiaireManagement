@@ -225,12 +225,22 @@ tabbedPane.addChangeListener(e -> {
     }
     
     private JMenuItem createMenuItem(String text, char mnemonic, int keyCode, int modifiers, Icon icon) {
-        JMenuItem item = new JMenuItem(text, mnemonic);
-        item.setAccelerator(KeyStroke.getKeyStroke(keyCode, modifiers));
-        item.setIcon(icon);
-        item.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        return item;
+    JMenuItem item = new JMenuItem(text, mnemonic);
+    item.setAccelerator(KeyStroke.getKeyStroke(keyCode, modifiers));
+    item.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+    
+    // Resize the icon if it exists
+    if (icon != null) {
+        ImageIcon originalIcon = (ImageIcon) icon;
+        Image img = originalIcon.getImage();
+        // Standard menu icon size (16x16)
+        Image resizedImg = img.getScaledInstance(16, 16, Image.SCALE_SMOOTH);
+        item.setIcon(new ImageIcon(resizedImg));
+        item.setIconTextGap(5); // Add some space between icon and text
     }
+    
+    return item;
+}
     
     private void showAboutDialog() {
         JDialog aboutDialog = new JDialog(this, "About", true);
@@ -300,7 +310,7 @@ tabbedPane.addChangeListener(e -> {
         JTableHeader header = table.getTableHeader();
         header.setFont(new Font("Segoe UI", Font.BOLD, 12));
         header.setBackground(primaryColor);
-        header.setForeground(Color.BLACK);
+        header.setForeground(Color.WHITE);
         
         // Center ID column
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -737,12 +747,11 @@ private Date getSelectedDate(JPanel datePickerPanel) {
             
             StagiaireDAO dao = new StagiaireDAO();
             boolean success;
-            
             if (stagiaire == null) {
                 // Create new stagiaire
                 Stagiaire newStagiaire = new Stagiaire(
                     0,
-                    1,
+                    getNextUserId(),
                     firstNameField.getText(),
                     lastNameField.getText(),
                     cinField.getText(),
@@ -794,6 +803,12 @@ private Date getSelectedDate(JPanel datePickerPanel) {
     dialog.setVisible(true);
 }
 
+private int getNextUserId() {
+    // Fetch the next available user ID. This could be from the database or from a custom counter.
+    StagiaireDAO dao = new StagiaireDAO();
+    int nextId = dao.getNextUserId();  // This is a method you'd implement in StagiaireDAO.
+    return nextId;
+}
 
 
 private void showSupervisorForm(Supervisor supervisor, DefaultTableModel model) {

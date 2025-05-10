@@ -5,8 +5,6 @@
 package gestionstagiares;
 
 import GestionStagiaire.ui.LoginFrame;
-import GestionStagiaire.ui.Welcome;
-
 /**
  *
  * @author agour

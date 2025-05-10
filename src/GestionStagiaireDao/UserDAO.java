@@ -158,4 +158,44 @@ public boolean deleteUser(int id) {
     }
     return false;
 }
+
+public boolean verifyPassword(int userId, String password) {
+    String sql = "SELECT password FROM users WHERE id = ?";
+    try (Connection conn = DatabaseUtil.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setInt(1, userId);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            String storedPassword = rs.getString("password");
+            return storedPassword.equals(password); // Use hashed password comparison in production
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+    return false;
+}
+
+public void updatePassword(int userId, String newPassword) throws SQLException {
+    String sql = "UPDATE users SET password = ? WHERE id = ?";
+    try (Connection conn = DatabaseUtil.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, newPassword); // Hash it in production
+        stmt.setInt(2, userId);
+        stmt.executeUpdate();
+    }
+}
+public void updateEmail(int userId, String newEmail) throws SQLException {
+    String sql = "UPDATE users SET email = ? WHERE id = ?";
+    try (Connection conn = DatabaseUtil.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, newEmail);
+        stmt.setInt(2, userId);
+        stmt.executeUpdate();
+    }
+}
+
+
 }

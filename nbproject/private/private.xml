@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/gestionstagiares/AppConfig.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/gestionstagiares/DatabaseUtil.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/GestionStagiaire/ui/LoginFrame.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/GestionStagiaire/ui/Stagiaire/StagiaireDashboard.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/GestionStagiaire/ui/Admin/AdminDashboard.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/GestionStagiaire/ui/Supervisor/SupervisorDashboard.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/gestionstagiares/GestionStagiares.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/GestionStagiaireDao/InternshipDAO.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/GestionStagiaireDao/StagiaireDAO.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/GestionStagiaire/models/Stagiaire.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/GestionStagiaire/models/Internship.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/GestionStagiaireDao/UserDAO.java</file>
+            <file>file:/C:/Users/agour/Documents/NetBeansProjects/GestionStagiares/src/GestionStagiaire/models/User.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -177,4 +177,19 @@ public class StagiaireDAO {
         }
         return stagiaire;
     }
+    public int getNextUserId() {
+    int nextId = 16; // Default starting ID
+    
+    try (Connection conn = DatabaseUtil.getConnection(); Statement stmt = conn.createStatement()) {
+        ResultSet rs = stmt.executeQuery("SELECT MAX(user_id) FROM stagiaires");
+        if (rs.next()) {
+            nextId = rs.getInt(1) + 1; // Increment the max ID by 1
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    
+    return nextId;
+}
+
 }
